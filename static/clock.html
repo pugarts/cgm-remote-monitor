@@ -26,9 +26,12 @@
     body {
       font-size: 100%;
       min-height: 100%;
+
     }
+
     .stale {
       text-decoration: line-through;
+
     }
   </style>
 </head>
@@ -44,6 +47,7 @@
       console.log('query');
       $.ajax('/api/v1/entries/current.json', { success: render });
     }
+
     function render (xhr) {
       console.log('xhr', xhr);
       var rec = xhr[0];
@@ -56,12 +60,15 @@
       var threshold = 1000 * 60 * 13;
       $('.bgnow').toggleClass('stale', (now - last > threshold));
     }
+
     function init ( ) {
       console.log('init');
       query( );
       setInterval(query, 1 * 60 * 1000);
     }
+
     init( );
   </script>
 </body>
 </html>
+
