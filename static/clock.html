@@ -5,7 +5,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   
   <title>glucoNEREA</title>
-  
+	
+  <link rel="stylesheet" type="text/css" href="css/auroral.css"/>
   <link href="/images/round1.png" rel="icon" id="favicon" type="image/png" />
   <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-touch-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-touch-icon-60x60.png">
@@ -27,7 +28,10 @@
 		overflow: hidden;
     }
     main {
-    	display: -webkit-box;			// Lots of vertical centering redundancy here
+    	display: -webkit-box;	
+	        display: block; // if it is not a block element
+  	        position: relative;
+  		overflow: hidden;// Lots of vertical centering redundancy here
 		display: -ms-flexbox;			// to accommodate different/old browsers.
 		display: -webkit-flex;
 		display: flex;
@@ -61,6 +65,7 @@
 
   <main>
   	<div class="inner">
+		<div class="auroral-northern"></div>
 		<div class="bgnow"></div>
 		<div class="arrow"><img id="arrow" src="" width="" /></div>
 	</div>
