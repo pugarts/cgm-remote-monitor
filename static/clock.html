@@ -60,13 +60,9 @@
 
 <body>
 
-  <main>
-	  <iframe src="http://free.timeanddate.com/clock/i5lmsb70/n136/tles4/fs24/fc09f/ftb/bac09f/pa10/tt0/tm1/th1/tb4" 
-			     frameborder="0" 
-			     width="358" 
-			     height="80">
-			</iframe>
+  <main>	 
   	<div class="inner"> 
+		The time is:<div id="txt"></div>
 		<div class="bgnow"></div>
 		<div class="arrow"><img id="arrow" src="" width="" /></div>
 	</div>
@@ -158,6 +154,22 @@
     }
 
     init( );
+	  function startTime() {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML = h+":"+m+":"+s;
+    var t = setTimeout(function(){startTime()},500);
+}
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+startTime();
   </script>	
 </body>
 </html>
