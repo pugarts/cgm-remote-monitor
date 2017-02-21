@@ -154,7 +154,7 @@
 			$('body').css('background-color', red);
 		}
 
-		var threshold = 1000 * 60 * 13;		// Time before data considered stale.
+		var threshold = 1000 * 60 * 7;		// Time before data considered stale.
 		
 		$('.bgnow').toggleClass('stale', (now - last > threshold));	// Restyle BG, timestyle and bockground if stale.
 	    	$('.timestyle').toggleClass('timestale', (now - last > threshold));
