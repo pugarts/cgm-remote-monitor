@@ -112,6 +112,7 @@
 		var red = 'rgba(123,0,0,1)';		// These are the particular shades of 
 		var yellow = 'rgba(170,143,0,1)';	// red, yellow, and green. Tweak if you like.
 		var green = 'rgba(134,207,70,1)';
+	    	var stalebackground = 'rgba(105,138,155,1)';
 	    
 		var direction = rec.direction;
 
@@ -158,7 +159,7 @@
 		
 		$('.bgnow').toggleClass('stale', (now - last > threshold));	// Restyle BG, timestyle and bockground if stale.
 	    	$('.timestyle').toggleClass('timestale', (now - last > threshold));
-	        $('.body').toggleClass('bodystale', (now - last > threshold));
+	        $('body').css('background-color', stalebackground);
 	}
 
     function init ( ) {
