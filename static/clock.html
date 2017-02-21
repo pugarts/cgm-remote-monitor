@@ -56,10 +56,16 @@
 	   	font-size: 18vmin;
 		color: white;
     }
+    .timestale {
+    	color: red;
+    }
     .stale {
     	color: black;
-	background-color: lightblue;
     }
+    .bodystale {
+    	background-color: lightblue;
+    }
+	  
   </style>
 </head>
 
@@ -89,9 +95,9 @@
 		var last = new Date(rec.date);
 		var now = new Date( );
 
-		var LowThresh = parseFloat("99");	// Set low/med/high thresholds here.
-		var MedThresh = parseFloat("190");	// Below Low will be red; between Low & Med
-		var HighThresh = parseFloat("235");	// is green; between Med & High is yellow;
+		var LowThresh = parseFloat("95");	// Set low/med/high thresholds here.
+		var MedThresh = parseFloat("185");	// Below Low will be red; between Low & Med
+		var HighThresh = parseFloat("220");	// is green; between Med & High is yellow;
 											// above High is red. Use mg/dl numbers if
 											// that's your site setting.
 											// Would love to just pull these from the main
@@ -149,7 +155,9 @@
 
 		var threshold = 1000 * 60 * 13;		// Time before data considered stale.
 		
-		$('.bgnow').toggleClass('stale', (now - last > threshold));		// Restyle BG if stale.
+		$('.bgnow').toggleClass('stale', (now - last > threshold));	// Restyle BG, timestyle and bockground if stale.
+	    	$('.timestyle').toggleClass('timestyle', (now - last > threshold));
+	        $('.body').toggleClass('bodystale', (now - last > threshold));
 	}
 
     function init ( ) {
