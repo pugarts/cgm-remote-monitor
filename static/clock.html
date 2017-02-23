@@ -142,28 +142,28 @@
 		$('.bgnow').text(rec.sgv);				// Insert the BG value text.
 
 		if (bgNum < LowThresh) {
-			$('body').css('background-color', red, (now - last < threshold));		// Threshold background coloring.
+			$('body').css('background-color', red);		// Threshold background coloring.
 		}	    
 	   	 if (bgNum < LowThresh) {
 			$('body').css('background-color', stalebackground, (now - last > threshold));
 		}
 	    
 		if ((LowThresh <= bgNum) && (bgNum < MedThresh)) {
-			$('body').css('background-color', green, (now - last < threshold));	
+			$('body').css('background-color', green);	
 		}	    
 	         if ((LowThresh <= bgNum) && (bgNum < MedThresh)) {
 			$('body').css('background-color', stalebackground, (now - last > threshold));
 		}
 	    
 		if ((MedThresh <= bgNum) && (bgNum < HighThresh)) {
-			$('body').css('background-color', yellow, (now - last < threshold));	
+			$('body').css('background-color', yellow);	
 		}
 	   	 if ((MedThresh <= bgNum) && (bgNum < HighThresh)) {
 			$('body').css('background-color', stalebackground, (now - last > threshold));
 		}
 	    
 		if (bgNum >= HighThresh) {
-			$('body').css('background-color', red, (now - last < threshold));
+			$('body').css('background-color', red);
 		}
 	    	 if (bgNum >= HighThresh) {
 			('body').css('background-color', stalebackground, (now - last > threshold));
