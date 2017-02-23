@@ -161,7 +161,7 @@
 
 		$('.bgnow').toggleClass('stale', (now - last > threshold));	// Restyle BG, timestyle and bockground if stale.
 	    	$('.timestyle').toggleClass('timestale', (now - last > threshold)); 
-	   	$('.body').toggleClass('stalebackground', (now - last > threshold));
+	   	$('.body').toggleClass('bodystale', (now - last > threshold));
 	}
 
     function init ( ) {
