@@ -150,7 +150,7 @@
 		}
 	    
 	    	if ((LowThresh <= bgNum) && (bgNum < MedThresh) && (now - last > threshold)) {
-			$('body').css('background-color', green);
+			$('body').css('background-color', stalebackground);
 		}
 
 		if ((MedThresh <= bgNum) && (bgNum < HighThresh)) {
