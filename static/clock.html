@@ -142,23 +142,37 @@
 		$('.bgnow').text(rec.sgv);				// Insert the BG value text.
 
 		if (bgNum < LowThresh) {
-			$('body').css('background-color', red);		// Threshold background coloring.
+			$('body').css('background-color', red, (now - last < threshold));		// Threshold background coloring.
+		}	    
+	   	 if (bgNum < LowThresh) {
+			$('body').css('background-color', stalebackground, (now - last > threshold));
 		}
+	    
 		if ((LowThresh <= bgNum) && (bgNum < MedThresh)) {
-			$('body').css('background-color', green);
+			$('body').css('background-color', green, (now - last < threshold));	
+		}	    
+	         if ((LowThresh <= bgNum) && (bgNum < MedThresh)) {
+			$('body').css('background-color', stalebackground, (now - last > threshold));
 		}
+	    
 		if ((MedThresh <= bgNum) && (bgNum < HighThresh)) {
-			$('body').css('background-color', yellow);
+			$('body').css('background-color', yellow, (now - last < threshold));	
 		}
+	   	 if ((MedThresh <= bgNum) && (bgNum < HighThresh)) {
+			$('body').css('background-color', stalebackground, (now - last > threshold));
+		}
+	    
 		if (bgNum >= HighThresh) {
-			$('body').css('background-color', red);
+			$('body').css('background-color', red, (now - last < threshold));
+		}
+	    	 if (bgNum >= HighThresh) {
+			('body').css('background-color', stalebackground, (now - last > threshold));
 		}
 
 		var threshold = 1000 * 60 * 7;		// Time before data considered stale.
 		
 		$('.bgnow').toggleClass('stale', (now - last > threshold));	// Restyle BG, timestyle and bockground if stale.
 	    	$('.timestyle').toggleClass('timestale', (now - last > threshold));	
-	        $('body').css('background-color', stalebackground, (now - last > threshold));
 	}
 
     function init ( ) {
