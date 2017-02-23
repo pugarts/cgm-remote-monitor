@@ -139,13 +139,17 @@
 
 		$('#arrow').attr('width', arrowWidth);	// Set the correct arrow width.
 
-		$('.bgnow').text(rec.sgv);				// Insert the BG value text.
+		$('.bgnow').text(rec.sgv);				// Insert the BG value text. 
 
 		if (bgNum<LowThresh) {
 			$('body').css('background-color', red);		// Threshold background coloring.
 		}
 
 		if ((LowThresh <= bgNum) && (bgNum < MedThresh)) {
+			$('body').css('background-color', green);
+		}
+	    
+	    	if ((LowThresh <= bgNum) && (bgNum < MedThresh) && (now - last > threshold)) {
 			$('body').css('background-color', green);
 		}
 
