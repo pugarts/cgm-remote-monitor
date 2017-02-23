@@ -124,7 +124,7 @@
 			case "DoubleDown":
 				arrowWidth = '153';
 				break;
-			case "SingleUp":
+ 			case "SingleUp":
 			case "SingleDown":
 				arrowWidth = '77';
 				break;
@@ -136,43 +136,34 @@
 				arrowWidth = '107';
 				break;
 		}
-		
+
 		$('#arrow').attr('width', arrowWidth);	// Set the correct arrow width.
 
 		$('.bgnow').text(rec.sgv);				// Insert the BG value text.
 
-		if (bgNum < LowThresh) {
+		if (bgNum<LowThresh) {
 			$('body').css('background-color', red);		// Threshold background coloring.
-		}	    
-	   	 if (bgNum < LowThresh) {
-			$('body').css('background-color', stalebackground, (now - last > threshold));
 		}
-	    
+
 		if ((LowThresh <= bgNum) && (bgNum < MedThresh)) {
-			$('body').css('background-color', green);	
-		}	    
-	         if ((LowThresh <= bgNum) && (bgNum < MedThresh)) {
-			$('body').css('background-color', stalebackground, (now - last > threshold));
+			$('body').css('background-color', green);
 		}
-	    
+
 		if ((MedThresh <= bgNum) && (bgNum < HighThresh)) {
-			$('body').css('background-color', yellow);	
+			$('body').css('background-color', yellow);
 		}
-	   	 if ((MedThresh <= bgNum) && (bgNum < HighThresh)) {
-			$('body').css('background-color', stalebackground, (now - last > threshold));
-		}
-	    
+
 		if (bgNum >= HighThresh) {
 			$('body').css('background-color', red);
 		}
-	    	 if (bgNum >= HighThresh) {
-			('body').css('background-color', stalebackground, (now - last > threshold));
-		}
 
 		var threshold = 1000 * 60 * 7;		// Time before data considered stale.
-		
+
 		$('.bgnow').toggleClass('stale', (now - last > threshold));	// Restyle BG, timestyle and bockground if stale.
-	    	$('.timestyle').toggleClass('timestale', (now - last > threshold));	
+	    	$('.timestyle').toggleClass('timestale', (now - last > threshold));
+	        $('body').toggleClass('bodystale', (now - last > threshold));
+	    
+	    	$('body').toggleClass('background-color', (now - last < threshold));
 	}
 
     function init ( ) {
@@ -194,11 +185,12 @@
 }
 
 function checkTime(i) {
-    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    if (i
+    <10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 }
 startTime();
-  </script>	
-</body>
+  </script>
+        </body>
 </html>
 
