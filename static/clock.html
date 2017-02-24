@@ -100,8 +100,8 @@
 			 var bgLow = window.serverSettings.settings.thresholds.bgLow;
 			 var bgTargetBottom = window.serverSettings.settings.thresholds.bgTargetBottom;
 			 var bgTargetTop = window.serverSettings.settings.thresholds.bgTargetTop;
-		 			// Convert BG to mmol/L if necessary.
 		 
+		 	// Convert BG to mmol/L if necessary.		 
 			if (window.serverSettings.settings.units == 'mmol') {
 				rec.sgv = Nightscout.units.mgdlToMMOL(rec.sgv);
 				bgHigh = Nightscout.units.mgdlToMMOL(bgHigh);
@@ -111,6 +111,7 @@
 			}
 			
 			var bgNum = parseFloat(rec.sgv);
+		 
 			// These are the particular shades of red, yellow, green, and blue.
 			var red = 'rgba(213,9,21,1)';
 			var yellow = 'rgba(233,190,43,1)';
@@ -142,8 +143,7 @@
 				$('body').css('background-color', red);
 			}
 			
-			// Time before data considered stale.
-		 
+			// Time before data considered stale.		 
 			var staleMinutes = 7;										
 			var threshold = 1000 * 60 * staleMinutes;		
 		 
@@ -171,7 +171,7 @@
          var s=today.getSeconds();
          m = checkTime(m);
          s = checkTime(s);
-         document.getElementById('txt').innerHTML = h+":"+m+":"+s;
+         document.getElementById('txt').innerHTML = h+":"+m;
          var t = setTimeout(function(){startTime()},500);
          }
          function checkTime(i) {
