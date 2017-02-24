@@ -62,15 +62,17 @@
 		}
 		.bgnow {
 			font-family: 'Open Sans';
-			font-weight: 700; 
+			font-weight: 700;			
+			font-size: 40vmin;
 		}
 		.arrow {
 			width: 100%;
 		}
 		img#arrow { 
+			width: 40vmin;
 		}
 		.stale {
-			color: black;
+			color: #ad5656;
 		}
 		.timestyle {
 			 font-family: 'Open Sans';  
@@ -191,7 +193,7 @@
 			}
 			
 			// Time before data considered stale.
-			var staleMinutes = 4;										
+			var staleMinutes = 7;										
 			var threshold = 1000 * 60 * staleMinutes;	
 			
 			// Restyle if stale.	
